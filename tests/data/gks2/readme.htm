@@ -1,0 +1,208 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=Shift_JIS">
+<title>JIS補助漢字16</title>
+</head>
+<body>
+
+<h1 id="t"><b>Readme</b></h1>
+
+[<a href="#2">2</a> <a href="#4">4</a> <a href="#6">6</a> <a href="#8">8</a>]<br>
+
+<br>
+JIS補助漢字16　　　　2005.08.01<br>
+(JIS X 0212-1990)　　Ver. 0.2<br>
+<sub>Code of the supplementary Japanese graphic character set for information interchange</sub>
+
+
+<br>
+<br>
+JIS X 0212-1990(「情報交換用漢字符号－補助漢字」)は、1990年に制定された 6,067字(漢字5,801、非漢字266字)の文字表で、一般に「JIS補助漢字」と呼ばれる。<br>
+
+
+
+<br>
+<br>
+<br>
+<b>0. 辞書のインストール</b><br>
+圧縮ファイル内の、EPWING ディレクトリ以下全体を、任意のフォルダ／ディレクトリ下に、内部のサブディレクトリ構造を保ったまま展開する。<br>
+
+<br>
+<img src="dir.gif" alt="[Dir]"><br>
+
+
+
+<br>
+<br>
+<br>
+<a name="1"></a>
+<b>1. 元データ</b>　[<a href="#t"><b>↑</b></a>]<br>
+　<sub>http://kanji.zinbun.kyoto-u.ac.jp/~yasuoka/ftp/fonts/</sub><br>
+・16x16ドット:<br>
+　　jisksp16-1990.bdf.Z<br>
+　　JIS X 0212-1990 Kanji Font, Version 0.983 (December 15, 1998)<br>
+　　著作権・ライセンス：Public Domain (<a href="#ref1">*1</a>)<br>
+・40x40ドット:<br>
+　　jisksp40.bdf.Z<br>
+　　40x40 JIS Supplementary Kanji Font, Version 1.3 (April 1, 1998)<br>
+　　著作権・ライセンス：別項を参照 (<a href="#ref2">*2</a>)<br>
+
+<br>
+・Unicode<br>
+　　Unihan database (<a href="#ref3">*3</a>)<br>
+
+
+
+<br>
+<br>
+<br>
+<a name="2"></a>
+<b>2. EPWING形式への変換</b>　[<a href="#t"><b>↑</b></a>]<br>
+本ソフトウェアーで言う EPWING形式 とは、JIS X 4081-2002 (EPWING-V1.0 サブセット)形式のことを指す。データ変換には、以下を利用した。<br>
+　EBStudio v1.66<br>
+　　<sup>http://www31.ocn.ne.jp/~h_ishida/</sup><br>
+　　(Windows用、シェアウェアー)<br>
+
+
+
+<br>
+<br>
+<br>
+<b>3. 検索方法</b>　[<a href="#t"><b>↑</b></a>]<br>
+【前方／後方一致】<br>
+　・Unicode<sub>16</sub>、区点、JISコード<sub>16</sub>、シフトJISコード<sub>16</sub>、諸橋大漢和辞典検字番号<br>
+　・読み(訓・音)<br>
+　　　＊誤りを多く含む(<a href="#ref3">*3</a>)ので、参考程度に留めること。<br>
+【メニュー】<br>
+　・区点番号順配列表からの参照検索<br>
+　・部首番号(康煕字典214部首配列準拠)からの参照検索<br>
+【複合】<br>
+　・部首画数・番号、総画数<br>
+　　　＊「画数」は準拠・出典(<a href="#ref3">*3</a>)により異なるので、その前後も調べるのが望ましい。<br>
+
+
+<br>
+<b>例：</b>（DDwin の場合)<br>
+各漢字コードでの検索例(里見【&#x5F34;】、森【&#x9DD7;】外)<br>
+・Unicode<sub>16</sub>　(<b>5F34</b>)　そのまま/U　⇒　5F34　<b>U</b>9dd7<br>
+・区点　　　(<b>2877</b>)　K/k を付加　⇒ <b>K</b>2877　<b>k</b>7631<br>
+・JIS<sub>16</sub>　　　(<b>3C6D</b>)　J/j を付加　⇒ <b>J</b>3C6D　<b>j</b>6c3f<br>
+・シフトJIS<sub>16</sub>(<b>8EEB</b>)　S/s を付加　⇒ <b>S</b>8EEB　<b>s</b>e6bd<br>
+・諸橋大漢和(<b>9808</b>)　M/m を付加　⇒ <b>M</b>9808　<b>m</b>47268<br>
+
+
+
+<br>
+<br>
+<br>
+<a name="4"></a><br>
+<b>4. 動作確認</b>　[<a href="#t"><b>↑</b></a>]<br>
+OS:<br>
+　Windows 2000 Professional<br>
+　Windows 98<br>
+<br>
+EPWINGビューアー:<br>
+　DDwin v2.66<br>
+
+
+
+<br>
+<br>
+<br>
+<b>5. 推奨のEPWINGビューアー</b>　[<a href="#t"><b>↑</b></a>]<br>
+DDwin v2.66<br>
+　<sup>http://homepage2.nifty.com/ddwin/</sup><br>
+　(Windows用、フリーウェアー)<br>
+
+
+
+<br>
+<br>
+<br>
+<a name="6"></a>
+<b>6. 著作権とライセンス</b>　[<a href="#t"><b>↑</b></a>]<br>
+本ソフトウェア(JIS X 4081 形式)の著作権は、<a href="#1">元データ</a>の作成者に帰属します。また、本ソフトウェアは、自由に使用し、改編・再配布・再転載可能（但し、制限の有る場合<a href="#ref2">*2</a>を除く）ですが、無償で且つ非営利目的の場合に限ります。<br>
+
+
+
+<br>
+<br>
+<br>
+<b>7. 無保証・免責</b>　[<a href="#t"><b>↑</b></a>]<br>
+本ソフトウェア(JIS X 4081 形式)は、現状のままで提供され、明示されているか否かを問わず、特定の用途に対する適合性や、他人の権利を侵害しないこと等を含めて、如何なる保証もありません。<br>
+
+<br>
+使用者は、自己の責任において本ソフトウェアを使用しなければなりません。その結果、一次的・二次的、または付随的・間接的な損害が万一発生したとしても、あるいは、機会損失や逸失利益、もしくはその他の如何なる損失があったとしても、使用者はそれらに対する賠償及び責任を一切問わないこととし、これに同意した上でのみ、使用するものとします。<br>
+
+
+
+<br>
+<br>
+<br>
+<a name="8"></a>
+<b>8. 履歴</b>　[<a href="#t"><b>↑</b></a>]<br>
+Ver.　Date　　　　内容・改変<br>
+──　─────　───────────────<br>
+0.2 　2005.08.01　40x40 イメージ、部首検索追加<br>
+0.12　2004.02.26　全文字 .bmp (16x16) 同梱<br>
+0.11　　　 01.18　メニュー検索／77区(60-67点)のリンク修正<br>
+0.1　　　　01.12　初版・公開<br>
+
+
+
+<br>
+<br>
+<br>
+9. 改変者<br>
+　Maximilk<br>
+　<sub>http://hp.vector.co.jp/authors/VA037273/</sub><br>
+
+
+
+<br>
+<br>
+<br>
+<a name="ref1"></a>
+<b>(*1)</b><br>
+　16x16 JIS X 0212-1990 Kanji Font, Version 0.983 (December 15, 1998)<br>
+　JISX9051-based design by<br>
+　　Koichi Yasuoka &lt;yasuoka@kudpc.kyoto-u.ac.jp&gt;<br>
+　　KANOU Hiroki &lt;g92k0323@cfi.waseda.ac.jp&gt;<br>
+　　ITO Takayuki &lt;yuki@is.s.u-tokyo.ac.jp&gt;<br>
+　　Toshiyuki Imamura &lt;imamura@kuamp.kyoto-u.ac.jp&gt;<br>
+　　Ken'ichi Nakata &lt;nakata@kuamp.kyoto-u.ac.jp&gt;<br>
+　　SUNAGAWA Keiki &lt;kei@ocean.ie.u-ryukyu.ac.jp&gt;<br>
+　COPYRIGHT "Public Domain"<br>
+
+
+<br>
+<br>
+<a name="ref2"></a>
+<b>(*2)</b><br>
+　40x40 JIS Supplementary Kanji Font, Version 1.3 (April 1, 1998), made of Adobe-NewCenturySchoolbook, Adobe-Symbol, and CBS-CNS fonts<br>
+　Rearranged and modified by Koichi Yasuoka &lt;yasuoka@kudpc.kyoto-u.ac.jp&gt;<br>
+　All Kanji characters are in Taiwan-standard-glyph style, so they are far from Japanese Heisei-Mincho style.<br>
+
+<br>
+　COPYRIGHT "Adobe Systems Incorporated; Linotype; Central Bureau of Standards, Ministry of Economy, ROC"<br>
+
+<br>
+　Permission to use, copy, modify, and distribute this software and its documentation for any purpose and without fee is hereby granted, provided that the above copyright notices appear in all copies and that both those copyright notices and this permission notice appear in supporting documentation, and that the names of Adobe Systems, Linotype, and CBS not be used in advertising or publicity pertaining to distribution of the software without specific, written prior permission.<br>
+
+
+<br>
+<br>
+<a name="ref3"></a>
+<b>(*3)</b><br>
+　Name: Unihan database<br>
+　Unicode version: 4.0.1<br>
+　Table version: 1.1<br>
+　Date: 31 October 2003<br>
+　Copyright: (c) 1996-2003 Unicode, Inc. All Rights reserved.<br>
+　Source: ftp://ftp.unicode.org/Public/UNIDATA/<br>
+
+<br>
+[<a href="#t"><b>↑</b></a>]
+</body></head>
