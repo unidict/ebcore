@@ -1,10 +1,10 @@
 # ebcore
 
-A C library for reading EB/EPWING electronic book dictionaries (JIS X 4081).
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![C](https://img.shields.io/badge/C-11-blue.svg)](https://en.wikipedia.org/wiki/C11_(C_standard))
+[![CI](https://github.com/unidict/ebcore/actions/workflows/ci.yml/badge.svg)](https://github.com/unidict/ebcore/actions/workflows/ci.yml)
 
-![CI](https://github.com/unidict/ebcore/actions/workflows/ci.yml/badge.svg)
-![C11](https://img.shields.io/badge/C-C11-blue.svg)
-![License](https://img.shields.io/badge/License-BSD--3--Clause-green.svg)
+A C library for reading EB/EPWING electronic book dictionaries (JIS X 4081).
 
 ## Overview
 
