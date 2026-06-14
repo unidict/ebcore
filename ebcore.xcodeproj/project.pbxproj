@@ -35,7 +35,7 @@
 
 /* Begin PBXFileReference section */
 		69F0ADF72FA57C540045BB3B /* libebcore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libebcore.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		69F0AEAD2FA59E830045BB3B /* tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = tests; sourceTree = BUILT_PRODUCTS_DIR; };
+		69F0AEAD2FA59E830045BB3B /* ebcore-tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "ebcore-tests"; sourceTree = BUILT_PRODUCTS_DIR; };
 		69F0AEC52FA5AD5C0045BB3B /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -147,7 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				69F0ADF72FA57C540045BB3B /* libebcore.a */,
-				69F0AEAD2FA59E830045BB3B /* tests */,
+				69F0AEAD2FA59E830045BB3B /* ebcore-tests */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -192,9 +192,9 @@
 			productReference = 69F0ADF72FA57C540045BB3B /* libebcore.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		69F0AEAC2FA59E830045BB3B /* tests */ = {
+		69F0AEAC2FA59E830045BB3B /* ebcore-tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 69F0AEB12FA59E830045BB3B /* Build configuration list for PBXNativeTarget "tests" */;
+			buildConfigurationList = 69F0AEB12FA59E830045BB3B /* Build configuration list for PBXNativeTarget "ebcore-tests" */;
 			buildPhases = (
 				69F0AEA92FA59E830045BB3B /* Sources */,
 				69F0AEAA2FA59E830045BB3B /* Frameworks */,
@@ -208,11 +208,11 @@
 			fileSystemSynchronizedGroups = (
 				69F0AEAE2FA59E830045BB3B /* tests */,
 			);
-			name = tests;
+			name = "ebcore-tests";
 			packageProductDependencies = (
 			);
 			productName = tests;
-			productReference = 69F0AEAD2FA59E830045BB3B /* tests */;
+			productReference = 69F0AEAD2FA59E830045BB3B /* ebcore-tests */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -247,7 +247,7 @@
 			projectRoot = "";
 			targets = (
 				69F0ADF62FA57C540045BB3B /* ebcore */,
-				69F0AEAC2FA59E830045BB3B /* tests */,
+				69F0AEAC2FA59E830045BB3B /* ebcore-tests */,
 			);
 		};
 /* End PBXProject section */
@@ -450,7 +450,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		69F0AEB12FA59E830045BB3B /* Build configuration list for PBXNativeTarget "tests" */ = {
+		69F0AEB12FA59E830045BB3B /* Build configuration list for PBXNativeTarget "ebcore-tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				69F0AEB22FA59E830045BB3B /* Debug */,
