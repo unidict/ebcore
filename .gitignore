@@ -25,3 +25,6 @@ CMakeUserPresets.json
 *.so
 *.dylib
 *.dll
+
+# Generated UDX index / test artifacts
+*.udx
