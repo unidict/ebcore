@@ -1309,3 +1309,52 @@ eb_reverse_word_jis(char *word)
     LOG(("out: eb_reverse_word_jis()"));
 }
 
+
+
+/*
+ * Canonicalize a typed query into the word-index form of the current
+ * subbook: run the input through the same conversion/fix pipeline
+ * (eb_convert_euc_jp + eb_fix_word) the search uses, applying the index
+ * styles the subbook declares (mark deletion, katakana conversion, ...).
+ * Display headwords and hand-typed queries can then be normalized to the
+ * exact byte form stored in the index. Requires a current subbook.
+ */
+EB_Error_Code
+eb_canonicalize_word(EB_Book *book, const char *input_word, char *out,
+    size_t out_size)
+{
+    EB_Error_Code error_code;
+    char word[EB_MAX_WORD_LENGTH + 1];
+    char canonicalized_word[EB_MAX_WORD_LENGTH + 1];
+    EB_Word_Code word_code;
+
+    eb_lock(&book->lock);
+    LOG(("in: eb_canonicalize_word(book=%d, input_word=%s)", (int)book->code,
+	eb_quoted_string(input_word)));
+
+    if (book->subbook_current == NULL) {
+	error_code = EB_ERR_NO_CUR_SUB;
+	goto failed;
+    }
+
+    error_code = eb_set_word(book, input_word, word, canonicalized_word,
+	&word_code);
+    if (error_code != EB_SUCCESS)
+	goto failed;
+
+    if (strlen(canonicalized_word) >= out_size) {
+	error_code = EB_ERR_TOO_LONG_WORD;
+	goto failed;
+    }
+    strcpy(out, canonicalized_word);
+
+    LOG(("out: eb_canonicalize_word(out=%s) = %s",
+	eb_quoted_string(out), eb_error_string(EB_SUCCESS)));
+    eb_unlock(&book->lock);
+    return EB_SUCCESS;
+
+  failed:
+    LOG(("out: eb_canonicalize_word() = %s", eb_error_string(error_code)));
+    eb_unlock(&book->lock);
+    return error_code;
+}
