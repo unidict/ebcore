@@ -928,6 +928,15 @@ struct EB_Hit_Struct {
      * Text position.
      */
     EB_Position text;
+
+    /*
+     * The indexed headword of the matched entry, in the dictionary's native
+     * character code (EUC-JP / ISO-8859-1), NUL terminated and truncated to
+     * EB_MAX_WORD_LENGTH bytes. This is the exact byte string the index
+     * compares against — the text rendered at `heading' is a display form
+     * and may carry decorations (marks, readings) the index does not store.
+     */
+    char index_word[EB_MAX_WORD_LENGTH + 1];
 };
 
 /*

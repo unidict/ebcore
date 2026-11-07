@@ -568,6 +568,31 @@ eb_hit_list(EB_Book *book, int max_hit_count, EB_Hit *hit_list, int *hit_count)
 /*
  * Get hit entries of a submitted exactword/word/endword search request.
  */
+
+/*
+ * Copy the matched entry's indexed headword bytes into the hit. Fixed-length
+ * index slots are padded past the actual word — strip trailing NULs (and
+ * full-width space padding used by some discs); inner spaces are kept.
+ */
+static void
+hit_set_index_word(EB_Hit *hit, const unsigned char *word, size_t length)
+{
+    if (length > EB_MAX_WORD_LENGTH)
+	length = EB_MAX_WORD_LENGTH;
+    for (;;) {
+	if (length > 0 && (word[length - 1] == 0x00 || word[length - 1] == 0x20)) {
+	    length--;
+	} else if (length >= 2 && word[length - 1] == 0xa1
+	    && word[length - 2] == 0xa1) {
+	    length -= 2;
+	} else {
+	    break;
+	}
+    }
+    memcpy(hit->index_word, word, length);
+    hit->index_word[length] = '\0';
+}
+
 static EB_Error_Code
 eb_hit_list_word(EB_Book *book, EB_Search_Context *context, int max_hit_count,
     EB_Hit *hit_list, int *hit_count)
@@ -678,6 +703,7 @@ entry_length=%d, entry_arrangement=%d, entry_count=%d)",
 			= eb_uint4(cache_p + context->entry_length);
 		    hit->text.offset
 			= eb_uint2(cache_p + context->entry_length + 4);
+		    hit_set_index_word(hit, cache_p, context->entry_length);
 		    hit++;
 		    *hit_count += 1;
 		}
@@ -725,6 +751,7 @@ entry_length=%d, entry_arrangement=%d, entry_count=%d)",
 			= eb_uint4(cache_p + context->entry_length + 1);
 		    hit->text.offset
 			= eb_uint2(cache_p + context->entry_length + 5);
+		    hit_set_index_word(hit, cache_p + 1, context->entry_length);
 		    hit++;
 		    *hit_count += 1;
 		}
@@ -776,6 +803,7 @@ entry_length=%d, entry_arrangement=%d, entry_count=%d)",
 			    = eb_uint4(cache_p + context->entry_length + 2);
 			hit->text.offset
 			    = eb_uint2(cache_p + context->entry_length + 6);
+			hit_set_index_word(hit, cache_p + 2, context->entry_length);
 			hit++;
 			*hit_count += 1;
 		    }
@@ -826,6 +854,7 @@ entry_length=%d, entry_arrangement=%d, entry_count=%d)",
 			    = eb_uint4(cache_p + context->entry_length + 2);
 			hit->text.offset
 			    = eb_uint2(cache_p + context->entry_length + 6);
+			hit_set_index_word(hit, cache_p + 2, context->entry_length);
 			hit++;
 			*hit_count += 1;
 		    }
@@ -1004,6 +1033,7 @@ entry_length=%d, entry_arrangement=%d, entry_count=%d)",
 			= eb_uint4(cache_p + context->entry_length);
 		    hit->text.offset
 			= eb_uint2(cache_p + context->entry_length + 4);
+		    hit_set_index_word(hit, cache_p, context->entry_length);
 		    hit++;
 		    *hit_count += 1;
 		}
@@ -1050,6 +1080,7 @@ entry_length=%d, entry_arrangement=%d, entry_count=%d)",
 			= eb_uint4(cache_p + context->entry_length + 1);
 		    hit->text.offset
 			= eb_uint2(cache_p + context->entry_length + 5);
+		    hit_set_index_word(hit, cache_p + 1, context->entry_length);
 		    hit++;
 		    *hit_count += 1;
 		}
@@ -1101,6 +1132,7 @@ entry_length=%d, entry_arrangement=%d, entry_count=%d)",
 			    = eb_uint4(cache_p + context->entry_length + 2);
 			hit->text.offset
 			    = eb_uint2(cache_p + context->entry_length + 6);
+			hit_set_index_word(hit, cache_p + 2, context->entry_length);
 			hit++;
 			*hit_count += 1;
 		    }
@@ -1336,6 +1368,7 @@ entry_length=%d, entry_arrangement=%d, entry_count=%d)",
 			= eb_uint4(cache_p + context->entry_length);
 		    hit->text.offset
 			= eb_uint2(cache_p + context->entry_length + 4);
+		    hit_set_index_word(hit, cache_p, context->entry_length);
 		    hit++;
 		    *hit_count += 1;
 		}
@@ -1382,6 +1415,7 @@ entry_length=%d, entry_arrangement=%d, entry_count=%d)",
 			= eb_uint4(cache_p + context->entry_length + 1);
 		    hit->text.offset
 			= eb_uint2(cache_p + context->entry_length + 5);
+		    hit_set_index_word(hit, cache_p + 1, context->entry_length);
 		    hit++;
 		    *hit_count += 1;
 		}
@@ -1433,6 +1467,7 @@ entry_length=%d, entry_arrangement=%d, entry_count=%d)",
 			    = eb_uint4(cache_p + context->entry_length + 2);
 			hit->text.offset
 			    = eb_uint2(cache_p + context->entry_length + 6);
+			hit_set_index_word(hit, cache_p + 2, context->entry_length);
 			hit++;
 			*hit_count += 1;
 		    }
