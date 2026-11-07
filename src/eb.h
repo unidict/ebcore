@@ -140,17 +140,6 @@ void eb_unset_subbook(EB_Book *book);
 int eb_have_word_search(EB_Book *book);
 EB_Error_Code eb_search_word(EB_Book *book, const char *input_word);
 
-/*
- * Canonicalize a typed query into the word-index form of the current
- * subbook, applying the index styles the subbook declares (mark deletion,
- * katakana conversion, long-vowel handling, ...). Display headwords and
- * hand-typed queries are thereby normalized to the byte form stored in
- * the word index. `out' must be at least EB_MAX_WORD_LENGTH + 1 bytes.
- * Requires a current subbook.
- */
-EB_Error_Code eb_canonicalize_word(EB_Book *book, const char *input_word,
-    char *out, size_t out_size);
-
 /* for backward compatibility */
 #define eb_suspend eb_unset_subbook
 #define eb_initialize_all_subbooks eb_load_all_subbooks
